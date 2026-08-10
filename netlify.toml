@@ -1,7 +1,6 @@
 [build]
   functions = "netlify/functions"
   publish = "dist"
-  command = "npx tsc"
 
 [[redirects]]
   from = "/*"
