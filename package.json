@@ -3,18 +3,18 @@
     "version": "1.0.1",
     "description": "Production-ready REST API with Express, TypeScript, Prisma, and PostgreSQL",
     "main": "dist/server.js",
-  "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "prisma generate && tsc",
-    "start": "node dist/server.js",
-    "typecheck": "tsc --noEmit",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev --name init",
-    "prisma:studio": "prisma studio",
-    "prisma:seed": "ts-node-dev --transpile-only prisma/seed.ts",
-    "lint": "eslint src --ext .ts",
-    "postinstall": "node scripts/fix-prisma.js"
-  },
+    "scripts": {
+        "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+        "build": "prisma generate && tsc",
+        "start": "node dist/server.js",
+        "typecheck": "tsc --noEmit",
+        "prisma:generate": "prisma generate",
+        "prisma:migrate": "prisma migrate dev --name init",
+        "prisma:studio": "prisma studio",
+        "prisma:seed": "ts-node-dev --transpile-only prisma/seed.ts",
+        "lint": "eslint src --ext .ts",
+        "postinstall": "node scripts/fix-prisma.js"
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
@@ -25,7 +25,8 @@
         "cors": "^2.8.6",
         "dotenv": "^17.4.2",
         "express": "^5.2.1",
-        "jsonwebtoken": "^9.0.3"
+        "jsonwebtoken": "^9.0.3",
+        "serverless-http": "^4.0.0"
     },
     "devDependencies": {
         "@types/bcryptjs": "^2.4.6",
