@@ -3,16 +3,17 @@
     "version":  "1.0.1",
     "description":  "Production-ready REST API with Express, TypeScript, Prisma, and PostgreSQL",
     "main":  "dist/server.js",
-    "scripts":  {
-                    "dev":  "ts-node-dev --respawn --transpile-only src/server.ts",
-                    "start":  "node dist/server.js",
-                    "typecheck":  "tsc --noEmit",
-                    "prisma:generate":  "prisma generate",
-                    "prisma:migrate":  "prisma migrate dev --name init",
-                    "prisma:studio":  "prisma studio",
-                    "prisma:seed":  "ts-node-dev --transpile-only prisma/seed.ts",
-                    "lint":  "eslint src --ext .ts"
-                },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "prisma generate && tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "ts-node-dev --transpile-only prisma/seed.ts",
+    "lint": "eslint src --ext .ts"
+  },
     "keywords":  [
 
                  ],
