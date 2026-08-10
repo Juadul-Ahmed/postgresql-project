@@ -132,6 +132,4 @@ See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for full API reference.
 - **Config:** `vercel.json`
 - **Notes:** Requires `DATABASE_URL`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `BCRYPT_ROUNDS` env vars set in Vercel dashboard.
 
-## License
 
-ISC
