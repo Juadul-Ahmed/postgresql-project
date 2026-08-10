@@ -6,4 +6,8 @@ if (process.env.NODE_ENV !== "production") {
   (global as any).prisma = prisma;
 }
 
+prisma.$connect().catch((err: unknown) => {
+  console.error("Prisma connection error:", err);
+});
+
 export default prisma;
