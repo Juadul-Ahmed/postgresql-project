@@ -28,6 +28,15 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the API", version: "1.0.0" });
 });
 
+app.get("/debug", async (req, res) => {
+  try {
+    const prisma = (await import("./lib/prisma")).default;
+    res.json({ success: true, message: "Prisma loaded", data: { initialized: true } });
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: "Prisma error", error: error.message, stack: error.stack });
+  }
+});
+
 app.use(errorHandler);
 
 export default app;
