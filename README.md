@@ -1,11 +1,11 @@
 # PostgreSQL Project
 
-Production-ready REST API with Express, TypeScript, Prisma, and PostgreSQL.
+Production-ready REST API with Express, TypeScript,5.5.4, Prisma, and PostgreSQL.
 
 ## Tech Stack
 
 - Express.js
-- TypeScript
+- TypeScript 5.5.4
 - Prisma ORM
 - PostgreSQL (Neon)
 - JWT Authentication
@@ -23,12 +23,21 @@ server/
 │   ├── routes/
 │   ├── services/
 │   └── lib/
+├── scripts/
+│   └── fix-prisma.js
+├── netlify/
+│   └── functions/
+│       └── express.js
 ├── api/
-│   └── index.ts
+│   └── index.js
 ├── .env
+├── Dockerfile
+├── .dockerignore
 ├── package.json
 ├── tsconfig.json
 ├── vercel.json
+├── netlify.toml
+├── render.yaml
 └── API_DOCUMENTATION.md
 ```
 
@@ -83,26 +92,30 @@ See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for full API reference.
 
 ## Deployment
 
-### Koyeb (Recommended - No Credit Card Required)
+### Vercel (Production - Live)
 
-1. Go to [https://app.koyeb.com](https://app.koyeb.com) and sign up with GitHub
-2. Click **Create Web Service** → select your repo `Juadul-Ahmed/postgresql-project`
-3. Choose **Docker** as the builder (uses the `Dockerfile` in the repo)
-4. Set **Port** to `5000`
-5. Add environment variables:
-   - `DATABASE_URL` — your Neon PostgreSQL connection string
-   - `JWT_SECRET` — your JWT secret
-   - `JWT_EXPIRES_IN` — `7d`
-   - `BCRYPT_ROUNDS` — `10`
-6. Click **Deploy**
+- **Live URL:** https://postgresql-project.vercel.app
+- **Build:** TypeScript 5.5.4 + Prisma generate in postinstall
+- **Config:** `vercel.json`
+- **Notes:** Requires `DATABASE_URL`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `BCRYPT_ROUNDS` env vars set in Vercel dashboard.
 
-### Vercel
+### Render
 
-See `vercel.json` for configuration. Requires environment variables set in Vercel dashboard.
+- **Config:** `render.yaml`
+- **Setup:** Create PostgreSQL database + Web Service from GitHub
+- **Notes:** Persistent Node.js server, Prisma works reliably
 
 ### Netlify
 
-See `netlify.toml` and `netlify/functions/express.js` for configuration.
+- **Config:** `netlify.toml` + `netlify/functions/express.js`
+- **Setup:** Connect GitHub repo, set publish dir to `dist`
+- **Notes:** Serverless functions, may have Prisma compatibility issues
+
+### Docker / Koyeb
+
+- **Config:** `Dockerfile`
+- **Setup:** Use Docker builder on Koyeb or any container host
+- **Port:** 5000
 
 ## License
 
