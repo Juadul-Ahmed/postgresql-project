@@ -28,7 +28,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
     prisma.user.findUnique({
       where: { id: decoded.id },
       select: { id: true, email: true, role: true, isDeleted: true },
-    }).then((user) => {
+    }).then((user: { id: string; email: string; role: string; isDeleted: boolean } | null) => {
       if (!user || user.isDeleted) {
         res.status(401).json({
           success: false,
@@ -44,7 +44,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
       };
 
       next();
-    }).catch((error) => {
+    }).catch((error: unknown) => {
       res.status(401).json({
         success: false,
         message: "Invalid or expired token",
