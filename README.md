@@ -83,7 +83,26 @@ See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for full API reference.
 
 ## Deployment
 
-Deployed on Vercel with Neon PostgreSQL.
+### Koyeb (Recommended - No Credit Card Required)
+
+1. Go to [https://app.koyeb.com](https://app.koyeb.com) and sign up with GitHub
+2. Click **Create Web Service** → select your repo `Juadul-Ahmed/postgresql-project`
+3. Choose **Docker** as the builder (uses the `Dockerfile` in the repo)
+4. Set **Port** to `5000`
+5. Add environment variables:
+   - `DATABASE_URL` — your Neon PostgreSQL connection string
+   - `JWT_SECRET` — your JWT secret
+   - `JWT_EXPIRES_IN` — `7d`
+   - `BCRYPT_ROUNDS` — `10`
+6. Click **Deploy**
+
+### Vercel
+
+See `vercel.json` for configuration. Requires environment variables set in Vercel dashboard.
+
+### Netlify
+
+See `netlify.toml` and `netlify/functions/express.js` for configuration.
 
 ## License
 
